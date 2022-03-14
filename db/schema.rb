@@ -10,7 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_14_162836) do
+ActiveRecord::Schema.define(version: 2022_03_14_184110) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.integer "country_id_id", null: false
+    t.string "postcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id_id"], name: "index_areas_on_country_id_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer "post_id_id", null: false
+    t.string "title"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id_id"], name: "index_images_on_post_id_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "type"
+    t.string "postcode"
+    t.integer "user_id_id", null: false
+    t.date "date_visited"
+    t.integer "area_id_id", null: false
+    t.boolean "deleted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id_id"], name: "index_posts_on_area_id_id"
+    t.index ["user_id_id"], name: "index_posts_on_user_id_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "spotify_link"
+    t.integer "area_id_id", null: false
+    t.string "artist"
+    t.string "album_name"
+    t.string "track_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id_id"], name: "index_songs_on_area_id_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +70,14 @@ ActiveRecord::Schema.define(version: 2022_03_14_162836) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "areas", "country_ids"
+  add_foreign_key "images", "post_ids"
+  add_foreign_key "posts", "area_ids"
+  add_foreign_key "posts", "user_ids"
+  add_foreign_key "songs", "area_ids"
 end
