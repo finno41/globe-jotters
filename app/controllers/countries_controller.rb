@@ -2,7 +2,7 @@ class CountriesController < ApplicationController
   before_action :authenticate_user!
 
   def home
-    @countries = Country.all
+    @countries = Country.all.sort_by(&:name)
   end
 
   def show
