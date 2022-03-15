@@ -79,6 +79,9 @@ GEM
       xpath (~> 3.2)
     childprocess (4.1.0)
     concurrent-ruby (1.1.9)
+    countries (4.2.2)
+      i18n_data (~> 0.15.0)
+      sixarm_ruby_unaccent (~> 1.1)
     crass (1.0.6)
     devise (4.8.1)
       bcrypt (~> 3.0)
@@ -92,6 +95,8 @@ GEM
       activesupport (>= 5.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.15.0)
+      simple_po_parser (~> 1.1)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -175,6 +180,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+    simple_po_parser (1.1.5)
+    sixarm_ruby_unaccent (1.2.0)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -221,6 +231,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  countries
   devise
   jbuilder (~> 2.7)
   listen (~> 3.3)
@@ -229,6 +240,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.6)
   sass-rails (>= 6)
   selenium-webdriver
+  simple_form
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
