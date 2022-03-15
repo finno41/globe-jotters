@@ -1,3 +1,3 @@
 class Area < ApplicationRecord
-  belongs_to :country_id
+  belongs_to :country
 end
