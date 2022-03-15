@@ -1,1 +1,12 @@
 <h1><%= @country.name %></h1>
+
+<% unless  @areas.empty?%>
+  <% @areas.each do |area| %>
+    <%=link_to area.name, country_area_path(@country, area) %>
+  <% end %>
+<% end %>
+
+<%= simple_form_for [@country, @area] do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit %>
+<% end %>

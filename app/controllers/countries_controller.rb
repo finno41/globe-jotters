@@ -7,6 +7,8 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id])
+    @area = Area.new
+    @areas = Area.where(country_id: @country)
   end
 
 end

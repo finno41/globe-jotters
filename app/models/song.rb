@@ -1,3 +1,3 @@
 class Song < ApplicationRecord
-  belongs_to :area_id
+  belongs_to :area
 end
