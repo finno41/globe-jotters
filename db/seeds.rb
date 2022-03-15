@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+countries = ISO3166::Country.all
+
+puts "deleting countried"
+Country.destroy_all
+
+puts "creating countries..."
+countries.each do |country|
+  puts "creating #{country}"
+  Country.create(name:country.unofficial_names[0])
+end
