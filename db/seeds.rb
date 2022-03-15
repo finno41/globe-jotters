@@ -8,8 +8,14 @@
 
 countries = ISO3166::Country.all
 
-puts "deleting countried"
+puts "deleting countries"
 Country.destroy_all
+
+puts "deleting users"
+User.destroy_all
+
+puts "deleting areas"
+Area.destroy_all
 
 puts "creating countries..."
 countries.each do |country|
