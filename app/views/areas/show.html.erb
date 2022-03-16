@@ -1,1 +1,15 @@
 <h1><%= @area.name %></h1>
+
+<% unless @posts.empty?%>
+  <% @posts.each do |post| %>
+    <strong><%= post.title %> </strong><em><%= post.category %></em><br><%= post.description %><br><br>
+  <% end %>
+<% end %>
+
+
+<%= simple_form_for [@country, @area, @post] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :category , collection: %w(activity memory restaurant overview) %>
+  <%= f.button :submit %>
+<% end %>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :blog, only: [:new]
   end
   resources :countries do
-    resources :areas
+    resources :areas do
+      resources :posts
+    end
   end
 end

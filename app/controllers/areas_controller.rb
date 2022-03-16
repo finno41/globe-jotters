@@ -14,6 +14,9 @@ class AreasController < ApplicationController
 
   def show
     @area = Area.find(params[:id])
+    @country = Country.find(params[:country_id])
+    @post = Post.new
+    @posts = Post.where(area_id: @area)
   end
 
 

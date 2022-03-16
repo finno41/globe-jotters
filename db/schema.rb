@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_15_161011) do
+ActiveRecord::Schema.define(version: 2022_03_16_122754) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_03_15_161011) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "type"
+    t.string "category"
     t.string "postcode"
     t.integer "user_id", null: false
     t.date "date_visited"
