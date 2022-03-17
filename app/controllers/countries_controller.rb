@@ -3,6 +3,15 @@ class CountriesController < ApplicationController
 
   def home
     @countries = Country.all.sort_by(&:name)
+
+  end
+
+  def index
+    if params[:query].present?
+      @countries = Country.where("name LIKE ?", "%#{params[:query]}%")
+    else
+      @countries = Country.all.sort_by(&:name)
+    end
   end
 
   def show
