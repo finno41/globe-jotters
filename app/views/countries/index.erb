@@ -1,16 +1,11 @@
-<h1>Home page</h1>
-<div data-controller="home">
-    <%= form_tag countries_path, method: :get do %>
-<%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Type a country"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+<div class= "div-contianer">
+  <div class = "main-container">
+    <p>Choose your destination explorer<p>
 
-  <% @countries.each do |country| %>
-    <%=link_to country.name, country_path(country) %><br>
-  <% end %>
-
-</div>
+    <select class="select2-dropdown" style="width: 800px">
+      <% @countries.each do |country| %>
+        <option value="<%= country_path(country) %>"><%= country.name %></option>
+      <% end %>
+    </select>
+  </div>
+<div>

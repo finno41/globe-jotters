@@ -15,4 +15,6 @@
  *= require_self
  *= require select2
  */
- @import "bootstrap/scss/bootstrap"
+ @import "bootstrap/scss/bootstrap";
+ @import "all.scss";
+ @import "components.scss";
