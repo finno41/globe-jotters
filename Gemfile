@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+#search dropdown functionality
+gem "select2-rails"
 
 gem 'countries'
 
