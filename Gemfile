@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+#image generator for areas
+gem "mediawiki_api"
+
 #search dropdown functionality
 gem "select2-rails"
 
