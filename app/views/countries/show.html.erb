@@ -1,13 +1,24 @@
 <h1><%= @country.name %></h1>
 
 <% unless  @areas.empty?%>
-  <% @areas.each do |area| %>
-    <% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{area.name}&limit=1" %>
-    <% user_serialized = URI.open(main_url).read %>
-    <% area_info = JSON.parse(user_serialized) %>
-      <%= image_tag(area_info["pages"][0]["thumbnail"]["url"]) %><br>
-      <%= link_to area.name, country_area_path(@country, area) %><br>
-  <% end %>
+  <div class = "area-main-div">
+    <% @areas.each do |area| %>
+      <%# Take information from Wikipedia API to create same width images %>
+      <% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{area.name}&limit=1" %>
+      <% user_serialized = URI.open(main_url).read %>
+      <% area_info = JSON.parse(user_serialized) %>
+      <% image_url = area_info["pages"][0]["thumbnail"]["url"] %>
+      <% image_url_resized = image_url.gsub(/[0-9]*\.?[0-9]+px?/, "350px") %>
+      <div class = "area-card">
+        <%= link_to country_area_path(@country, area) do%>
+          <%= image_tag(image_url_resized, class: "area-image")%>
+          <div class = "area-title">
+            <%= area.name %>
+          </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
 <%= simple_form_for [@country, @area] do |f| %>
