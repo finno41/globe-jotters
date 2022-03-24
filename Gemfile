@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'cloudinary'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem "image_processing"
 #image generator for areas
 gem "mediawiki_api"
 
