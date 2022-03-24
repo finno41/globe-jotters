@@ -9,8 +9,6 @@ gem "select2-rails"
 
 gem 'countries'
 
-ruby '3.0.3'
-
 gem 'simple_form'
 
 gem 'devise'

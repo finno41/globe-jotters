@@ -1,23 +1,39 @@
-<% require "open-uri" %>
-<h1><%= @area.name %></h1>
 
-
-<% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{@area.name}&limit=1" %>
-<% user_serialized = URI.open(main_url).read %>
-<% area_info = JSON.parse(user_serialized) %>
-<%= image_tag(area_info["pages"][0]["thumbnail"]["url"]) %>
 
 
 <% unless @posts.empty?%>
-  <% @posts.each do |post| %>
-    <strong><%= post.title %> </strong><em><%= post.category %></em><br><%= post.description %><br><br>
-  <% end %>
-<% end %>
-
-
-<%= simple_form_for [@country, @area, @post] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :category , collection: %w(activity memory restaurant overview) %>
-  <%= f.button :submit %>
+  <div class = main-posts-div>
+    <div>
+    <%= "Welcome to #{@area.name}, #{@country.name}"%>
+    </div>
+      <%= link_to "New post", new_country_area_post_path(@country, @area), class: "green-button mt-3"%>
+    <div>
+      <div class="area-main-div">
+        <% @posts.each do |post| %>
+          <%= link_to country_area_post_path(@country, @area, post) do %>
+            <div class= "post-card">
+              <div>
+                <%= image_tag("https://picsum.photos/300/300") %>
+              </div>
+              <div class = "lower-post-card">
+                <div>
+                  <%= post.title %>
+                </div>
+                <div>
+                  <em><%= post.category %></em>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <div class="main-posts-div-blank">
+      <div>
+        <%= "Welcome to #{@area.name}, #{@country.name}. #{@area.name} is yet to be explored, please document your experience"%><br>
+      </div>
+      <%= link_to "New post", new_country_area_post_path(@country, @area), class: "green-button mt-3"%>
+    </div>
 <% end %>
