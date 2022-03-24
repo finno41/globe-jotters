@@ -13,7 +13,11 @@
           <%= link_to country_area_post_path(@country, @area, post) do %>
             <div class= "post-card">
               <div>
-                <%= image_tag("https://picsum.photos/300/300") %>
+                <% if post.main_image.nil? %>
+                  <%= image_tag("https://picsum.photos/300/300") %>
+                <% else %>
+                  <%= image_tag post.main_image, class:"main-post-image" %>
+                <% end %>
               </div>
               <div class = "lower-post-card">
                 <div>
