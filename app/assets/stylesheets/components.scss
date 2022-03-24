@@ -1,6 +1,7 @@
 .area-main-div{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .area-card{
@@ -8,16 +9,51 @@
   display: grid;
   margin: 20px 20px;
   padding: 10px 10px;
-  height: 350px;
+  height: 360px;
+  width: 540px;
+  box-shadow: 2px 5px #e7e7e7;
+  transition: 0.5s;
+  justify-content: center;
 }
 
 
 .area-image{
-  width: 220px;
+  width: 520px;
   height: 300px;
   object-fit: cover;
+  object-position: top;
+  padding-bottom: 10px;
 }
 
 .area-title{
   text-align: center;
+  font-size: 24px;
+}
+
+.green-button{
+  border-radius: 20px;
+  background-color: #57A773;
+  color: white;
+  padding: 10px 130px;
+}
+
+.post-card{
+  background-color: white;
+  display: grid;
+  margin: 20px 20px;
+  padding: 10px 10px;
+  height: 380px;
+  width: 300px;
+  box-shadow: 2px 5px #e7e7e7;
+  transition: 0.5s;
+  justify-content: center;
+  text-align: center;
+  color: black;
+}
+
+.lower-post-card{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+
 }

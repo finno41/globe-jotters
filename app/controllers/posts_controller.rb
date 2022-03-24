@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def new
+    @country = Country.find(params[:country_id])
+    @area = Area.find(params[:area_id])
     @post = Post.new
   end
 

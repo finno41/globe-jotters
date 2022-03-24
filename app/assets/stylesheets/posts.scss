@@ -1,3 +1,21 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.main-posts-div-blank{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  flex-direction:column;
+}
+
+.main-posts-div{
+  display: flex;
+  align-items: center;
+  height: 90vh;
+  flex-direction:column;
+}
+
+.no-posts-text{
+
+}

@@ -17,6 +17,7 @@ class AreasController < ApplicationController
     @country = Country.find(params[:country_id])
     @post = Post.new
     @posts = Post.where(area_id: @area)
+    @parse = @area.name
   end
 
 

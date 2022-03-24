@@ -1,4 +1,5 @@
 <h1><%= @country.name %></h1>
+<% require 'open-uri' %>
 
 <% unless  @areas.empty?%>
   <div class = "area-main-div">
@@ -20,6 +21,7 @@
     <% end %>
   </div>
 <% end %>
+
 
 <%= simple_form_for [@country, @area] do |f| %>
   <%= f.input :name %>
