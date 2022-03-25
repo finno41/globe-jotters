@@ -9,6 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import $ from 'jquery'
 import select2 from 'select2'
+import "trix"
+import "@rails/actiontext"
 
 Rails.start()
 Turbolinks.start()
@@ -31,3 +33,6 @@ $(document).ready(function() {
     }
   });
 });
+
+require("trix")
+require("@rails/actiontext")
