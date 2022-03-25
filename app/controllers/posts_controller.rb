@@ -15,6 +15,12 @@ class PostsController < ApplicationController
     redirect_to country_area_path(@country, @area)
   end
 
+  def show
+    @country = Country.find(params[:country_id])
+    @area = Area.find(params[:area_id])
+    @post = Post.find(params[:id])
+  end
+
   private
 
   def post_params
