@@ -1,13 +1,25 @@
+<div>
+
+</div>
+
+<div class = "main-post-image-circle-div">
+  <%= image_tag @post.main_image, class:"main-post-image-circle" %>
+</div>
 <div class = "post-show-div">
   <div class = "post-title-div">
   <%= @post.title %>
   </div>
-  <div class = "post-summary-div">
-  <%= @post.summary %>
-  </div>
+
   <div class = "author-div">
   Written by <%= @post.user.username %>
+  <% if current_user == @post.user %>
+    edit
+  <% end %>
   </div>
+  <%= simple_form_for [@country, @area, @post] do |f| %>
+  <%= f.file_field :images, as: :files, multiple: true %>
+  <%= f.button :submit %>
+  <% end %>
   <div class = "post-description-div">
   <%= @post.description %>
   </div>
