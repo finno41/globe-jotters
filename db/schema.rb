@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_25_114022) do
+ActiveRecord::Schema.define(version: 2022_03_29_142049) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2022_03_25_114022) do
     t.boolean "deleted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "summary"
     t.index ["area_id"], name: "index_posts_on_area_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

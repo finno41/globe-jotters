@@ -1,6 +1,7 @@
 <h1>New post</h1>
 <%= simple_form_for [@country, @area, @post] do |f| %>
   <%= f.input :title %>
+  <%= f.input :summary %>
   <%= f.input :description, as: :rich_text_area %>
   <%= f.input :category , collection: %w(bar restaurant activity nature memory) %>
   <%= f.input :main_image, as: :file, label: "square image only"%>

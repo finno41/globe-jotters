@@ -1,2 +1,14 @@
-<%= @post.title %>
-<%= @post.description %>
+<div class = "post-show-div">
+  <div class = "post-title-div">
+  <%= @post.title %>
+  </div>
+  <div class = "post-summary-div">
+  <%= @post.summary %>
+  </div>
+  <div class = "author-div">
+  Written by <%= @post.user.username %>
+  </div>
+  <div class = "post-description-div">
+  <%= @post.description %>
+  </div>
+</div>
