@@ -1,0 +1,30 @@
+.post-show-div{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin: 50px;
+  align-items: center;
+
+}
+
+.post-title-div{
+  font-size:30px;
+  margin-bottom: 20px;
+
+}
+
+.post-summary-div{
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.post-description-div{
+  margin: 0px 20px;
+  text-align: justify;
+}
+
+.author-div{
+  font-style: italic;
+  margin-bottom: 20px;
+}
