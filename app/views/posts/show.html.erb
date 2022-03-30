@@ -1,5 +1,26 @@
-<div>
-
+<div class = "d-flex justify-content-center">
+  <div class = "carousel-container mt-5">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active carousel-image-limiter">
+          <%= image_tag(@post.images[0], class: "d-block w-100") %>
+        </div>
+        <% @post.images.drop(1).each do |image| %>
+          <div class="carousel-item carousel-image-limiter">
+            <%= image_tag(image, class: "d-block w-100") %>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 </div>
 
 <div class = "main-post-image-circle-div">
@@ -11,15 +32,13 @@
   </div>
 
   <div class = "author-div">
-  Written by <%= @post.user.username %>
-  <% if current_user == @post.user %>
-    edit
-  <% end %>
+    <div class="text-center">
+      Written by <%= @post.user.username %>
+    </div>
   </div>
-  <%= simple_form_for [@country, @area, @post] do |f| %>
-  <%= f.file_field :images, as: :files, multiple: true %>
-  <%= f.button :submit %>
-  <% end %>
+<% if current_user == @post.user %>
+    <%= link_to "edit", edit_country_area_post_path(@country, @area, @post), class: "green-button mb-3"%>
+<% end %>
   <div class = "post-description-div">
   <%= @post.description %>
   </div>

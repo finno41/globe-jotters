@@ -46,3 +46,19 @@
   justify-content: center;
   width: 97vw;
 }
+
+.carousel-container{
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid black;
+  border: 15px solid white;
+  outline-style: 2px solid;
+  outline-color: black;
+}
+
+.carousel-image-limiter{
+  width: 870px;
+  height: 580px;
+  object-fit: cover;
+}

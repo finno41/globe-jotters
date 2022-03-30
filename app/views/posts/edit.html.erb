@@ -1,4 +1,5 @@
-<h1>New post</h1>
+<%= link_to "back", country_area_post_path(@country, @area, @post), class: "green-button my-5"%>
+
 <div data-controller="multi-upload">
 <%= simple_form_for [@country, @area, @post] do |f| %>
   <%= f.input :title %>
@@ -11,3 +12,6 @@
   <%= f.button :submit %>
 <% end %>
 </div>
+<% @post.images.each do |image| %>
+  <%= image_tag(image, width: "200px") %>
+<% end %>
