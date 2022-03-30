@@ -11,6 +11,7 @@ import $ from 'jquery'
 import select2 from 'select2'
 import "trix"
 import "@rails/actiontext"
+import "bootstrap"
 
 Rails.start()
 Turbolinks.start()
