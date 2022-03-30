@@ -11,8 +11,11 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     @post.area = @area
-    @post.save
-    redirect_to country_area_path(@country, @area)
+    if @post.save
+      redirect_to country_area_path(@country, @area)
+    else
+      render :new
+    end
   end
 
   def show
