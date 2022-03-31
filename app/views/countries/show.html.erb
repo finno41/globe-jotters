@@ -1,4 +1,6 @@
+<div class = "text-center mt-3">
 <h1><%= @country.name %></h1>
+</div>
 <% require 'open-uri' %>
 
 <% unless  @areas.empty?%>
@@ -30,7 +32,13 @@
 <% end %>
 
 
-<%= simple_form_for [@country, @area] do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+<div class = "main-form-container">
+  <div class= "form-container">
+    <%= simple_form_for [@country, @area] do |f| %>
+      <div class = "mb-4">
+        <%= f.input :name, label: false%>
+      </div>
+      <%= f.button :submit, class: "green-button" %>
+    <% end %>
+  </div>
+</div>

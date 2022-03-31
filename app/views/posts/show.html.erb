@@ -43,7 +43,7 @@
 <% if current_user == @post.user %>
     <%= link_to "edit", edit_country_area_post_path(@country, @area, @post), class: "green-button mb-3"%>
 <% end %>
-  <div class = "post-description-div">
-  <%= @post.description %>
+  <div class = "post-description-div pb-5">
+    <%= @post.description %>
   </div>
 </div>
