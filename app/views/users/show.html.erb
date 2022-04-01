@@ -1,1 +1,36 @@
-Test
+<h1 class = "text-center"><%=current_user.username%>'s posts</h1>
+
+<% unless @posts.empty?%>
+      <div class="area-main-div">
+        <% @posts.each do |post| %>
+          <%= link_to country_area_post_path(post.area.country, post.area, post) do %>
+            <div class= "post-card">
+              <div>
+                <% if post.main_image.nil? %>
+                  <%= image_tag("https://picsum.photos/300/300") %>
+                <% else %>
+                  <%= image_tag post.main_image, class:"main-post-image" %>
+                <% end %>
+              </div>
+              <div class = "lower-post-card">
+                <div>
+                  <%= post.title %>
+                </div>
+                <div>
+                  <em><%= post.category %></em>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <div class="main-posts-div-blank">
+      <div>
+        <%= "Welcome to #{@area.name}, #{@country.name}. #{@area.name} is yet to be explored, please document your experience"%><br>
+      </div>
+      <%= link_to "New post", new_country_area_post_path(@country, @area), class: "green-button mt-3"%>
+    </div>
+<% end %>
