@@ -15,6 +15,9 @@
       <div class = "d-flex justify-content-center">
         <%= f.button :submit, class: "green-button mt-3"%>
       </div>
+      <div class = "text-link text-center mt-2">
+        <%= link_to "Go back", country_area_path(@country, @area) %>
+      </div>
     <% end %>
     </div>
   </div>
