@@ -15,6 +15,31 @@
   </head>
 
   <body>
+  <%# header %>
+  <% if user_signed_in? %>
+    <div class = "header-container">
+      <%= link_to root_path do%>
+        <div class = "header-cell">
+          GlobeJotters
+        </div>
+      <% end %>
+      <div class = "header-right-section">
+        <%=link_to user_path(current_user) do%>
+          <div class = "header-cell">
+            My Jots
+          </div>
+        <% end %>
+      <%= link_to root_path do%>
+        <div class = "header-cell">
+          Countries
+        </div>
+      <% end %>
+        <div class = "header-cell">
+          My Account
+        </div>
+      </div>
+    </div>
+  <% end %>
     <%= yield %>
   </body>
 </html>

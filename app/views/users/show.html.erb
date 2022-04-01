@@ -26,11 +26,4 @@
       </div>
     </div>
   </div>
-  <% else %>
-    <div class="main-posts-div-blank">
-      <div>
-        <%= "Welcome to #{@area.name}, #{@country.name}. #{@area.name} is yet to be explored, please document your experience"%><br>
-      </div>
-      <%= link_to "New post", new_country_area_post_path(@country, @area), class: "green-button mt-3"%>
-    </div>
 <% end %>
