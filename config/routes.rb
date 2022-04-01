@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "countries#index"
   resources :users do
-    resources :blog, only: [:new]
+    resources :blog, only: [:new, :edit, :update]
   end
   resources :countries do
     resources :areas do

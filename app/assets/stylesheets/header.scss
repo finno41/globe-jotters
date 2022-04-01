@@ -1,0 +1,29 @@
+.header-container{
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-right-section{
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header-cell{
+  height: 60px;
+  padding: 0px 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: #57A773;
+  transition: 0.5s;
+}
+
+.header-cell:hover{
+  background-color: #57A773;
+  color: white;
+  transition: 0.5s;
+  text-decoration: underline;
+}
