@@ -1,10 +1,11 @@
+<%# test %>
 <div class= "div-contianer">
   <div class = "main-container">
-    <p>Choose your destination explorer<p>
+    <p> Choose your destination explorer<p>
 
     <select class="select2-dropdown" style="width: 800px">
       <% @countries.each do |country| %>
-        <option value="<%= country_path(country) %>"><%= country.name %></option>
+        <option value="<%= country_path(country)%>"><%= country.name %></option>
       <% end %>
     </select>
   </div>

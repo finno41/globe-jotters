@@ -1,3 +1,11 @@
+<nav aria-label="breadcrumb" class="mt-2 pl-2">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+    <li class="breadcrumb-item"><%= link_to @country.name, country_path(@country) %></li>
+    <li class="breadcrumb-item"><%= link_to @area.name, country_area_path(@country, @area) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @post.title %></li>
+  </ol>
+</nav>
 <% unless @post.images.empty? %>
   <div class = "d-flex justify-content-center">
     <div class = "carousel-container mt-5">

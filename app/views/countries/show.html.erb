@@ -1,3 +1,10 @@
+<nav aria-label="breadcrumb" class="mt-2 pl-2">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @country.name %></li>
+  </ol>
+</nav>
+
 <div class = "text-center mt-3">
 <h1><%= @country.name %></h1>
 </div>
