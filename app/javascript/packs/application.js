@@ -19,15 +19,14 @@ ActiveStorage.start()
 
 import "controllers"
 
-$(document).ready(function() {
-  // init select2 pligin
+$(document).on('turbolinks:load',function() {
+  // init select2 plugin
   $('.select2-dropdown').select2();
 
   // listen for the `select` event on the dropdown
   $('.select2-dropdown').on('select2:select', function (event) {
     // Get the option from the select dropdown
     const data = event.params.data;
-
     // If there is a URL to redirect to, redirect to that
     if (data.id) {
       window.location.href = data.id;
