@@ -12,12 +12,12 @@
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active carousel-image-limiter">
-            <%= image_tag(@post.images[0], class: "d-block w-100") %>
+            <%= cl_(@post.images[0].key, class: "d-block w-100") %>
           </div>
           <% unless @post.images.drop(1).empty?  %>
             <% @post.images.drop(1).each do |image| %>
               <div class="carousel-item carousel-image-limiter">
-                <%= image_tag(image, class: "d-block w-100") %>
+                <%= (image.key, class: "d-block w-100") %>
               </div>
             <% end %>
           <% end %>
