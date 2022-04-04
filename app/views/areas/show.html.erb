@@ -7,6 +7,8 @@
   </ol>
 </nav>
 
+<%= cl_image_tag("dnwi3xzisbmrprsyfuuk") %>
+
 <% unless @posts.empty?%>
   <div class = main-posts-div>
     <div>
@@ -22,7 +24,7 @@
                 <% if post.main_image.nil? %>
                   <%= image_tag("https://picsum.photos/300/300") %>
                 <% else %>
-                  <%= cl_image_tag (post.main_image.key, class:"main-post-image") %>
+                  <%= cl_image_tag(post.main_image.key, class:"main-post-image") %>
                 <% end %>
               </div>
               <div class = "lower-post-card">
