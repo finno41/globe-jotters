@@ -8,5 +8,42 @@
         <option value="<%= country_path(country)%>"><%= country.name %></option>
       <% end %>
     </select>
+
+    <div>
+      <h2 class="mt-5">Latest posts</h2>
+    </div>
+      <div class="area-main-div">
+        <% @latest_posts.each do |post| %>
+          <div>
+            <%= link_to country_area_post_path(post.area.country, post.area, post) do %>
+              <div class= "post-card">
+                <div>
+                  <%= cl_image_tag(post.main_image.key, class:"main-post-image") %>
+                </div>
+                <div class = "lower-post-card">
+                  <div>
+                    <%= post.title %>
+                  </div>
+                  <div>
+                    <em><%= post.category %></em>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+          <div class = "hp-tag-container">
+            <%= link_to country_area_path(post.area.country, post.area) do%>
+              <div class = "hp-location">
+                <%= post.area.name%>
+              </div>
+            <% end %>
+            <%= link_to country_path(post.area.country) do%>
+              <div class = "hp-location">
+                <%=post.area.country.name %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+     </div>
   </div>
-<div>
+</div>
