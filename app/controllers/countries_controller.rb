@@ -3,7 +3,6 @@ class CountriesController < ApplicationController
 
   def home
     @countries = Country.all.sort_by(&:name)
-
   end
 
   def index
@@ -12,6 +11,7 @@ class CountriesController < ApplicationController
     else
       @countries = Country.all.sort_by(&:name)
     end
+    @latest_posts = Post.last(3)
   end
 
   def show

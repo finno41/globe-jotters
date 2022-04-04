@@ -19,6 +19,11 @@ ActiveStorage.start()
 
 import "controllers"
 
+// Stop form reloading on back button submission
+document.addEventListener('turbolinks:before-cache', function() {
+  $('.select2-hidden-accessible').select2('destroy');
+});
+
 $(document).on('turbolinks:load',function() {
   // init select2 plugin
   $('.select2-dropdown').select2();
