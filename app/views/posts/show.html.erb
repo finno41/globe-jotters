@@ -34,24 +34,26 @@
     </div>
   </div>
 <% end %>
-
-<div class = "main-post-image-circle-div">
-  <%= cl_image_tag(@post.main_image.key, class:"main-post-image-circle" )%>
-</div>
-<div class = "post-show-div">
-  <div class = "post-title-div">
-  <%= @post.title %>
+  <div class = "main-post-image-circle-div">
+    <%= cl_image_tag(@post.main_image.key, class:"main-post-image-circle" )%>
   </div>
-
-  <div class = "author-div">
-    <div class="text-center">
-      Written by <%= @post.user.username %>
+<div class = "d-flex justify-content-center">
+  <div class = "post-show-div">
+    <div class = "post-title-div">
+      <%= @post.title %>
     </div>
-  </div>
-<% if current_user == @post.user %>
-    <%= link_to "edit", edit_country_area_post_path(@country, @area, @post), class: "green-button mb-3"%>
-<% end %>
-  <div class = "post-description-div pb-5">
-    <%= @post.description %>
+
+
+    <div class = "author-div">
+      <div class="text-center">
+        Written by <%= @post.user.username %>
+      </div>
+    </div>
+  <% if current_user == @post.user %>
+      <%= link_to "edit", edit_country_area_post_path(@country, @area, @post), class: "green-button mb-3"%>
+  <% end %>
+    <div class = "post-description-div pb-5">
+      <%= @post.description %>
+    </div>
   </div>
 </div>
