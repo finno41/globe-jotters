@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
+
   def new
     @country = Country.find(params[:country_id])
     @area = Area.find(params[:area_id])
