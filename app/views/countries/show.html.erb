@@ -14,13 +14,13 @@
   <div class = "area-main-div">
     <% @areas.each do |area| %>
       <%# Take information from Wikipedia API to create same width images %>
-      <% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{area.name}&limit=1" %>
+      <% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{area.name.tr('àáäâãèéëẽêìíïîĩòóöôõùúüûũñç', 'aaaaaeeeeeiiiiiooooouuuuunc')}&limit=1" %>
       <% user_serialized = URI.open(main_url).read %>
       <% area_info = JSON.parse(user_serialized) %>
       <% unless area_info["pages"][0]["thumbnail"].nil? %>
         <% image_url = area_info["pages"][0]["thumbnail"]["url"] %>
       <% else %>
-        <% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{area.country.name}&limit=1" %>
+        <% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{area.name.tr('àáäâãèéëẽêìíïîĩòóöôõùúüûũñç', 'aaaaaeeeeeiiiiiooooouuuuunc')}&limit=1" %>
         <% user_serialized = URI.open(main_url).read %>
         <% area_info = JSON.parse(user_serialized) %>
         <% image_url = area_info["pages"][0]["thumbnail"]["url"] %>
