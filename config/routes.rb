@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "countries#index"
-  resources :users do
+  resources :users, only: [:show, :edit, :update]  do
     resources :blog, only: [:new, :edit, :update]
   end
   resources :countries do
