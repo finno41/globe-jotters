@@ -12,23 +12,22 @@
 
 <% unless  @areas.empty?%>
   <div class = "area-main-div">
-    <% @areas.each do |area| %>
+    <% @areas.each_with_index do |area, i| %>
       <%# Take information from Wikipedia API to create same width images %>
-      <% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{area.name.tr('àáäâãèéëẽêìíïîĩòóöôõùúüûũñç', 'aaaaaeeeeeiiiiiooooouuuuunc')}&limit=1" %>
+      <% main_url = "https://pixabay.com/api/?key=#{ENV['PIXABAY_KEY']}&q=#{area.name.tr('àáäâãèéëẽêìíïîĩòóöôõùúüûũñç', 'aaaaaeeeeeiiiiiooooouuuuunc')}+#{area.country.name.tr('àáäâãèéëẽêìíïîĩòóöôõùúüûũñç', 'aaaaaeeeeeiiiiiooooouuuuunc')}&image_type=photo" %>
       <% user_serialized = URI.open(main_url).read %>
       <% area_info = JSON.parse(user_serialized) %>
-      <% unless area_info["pages"].empty? || area_info["pages"][0]["thumbnail"].nil? %>
-        <% image_url = area_info["pages"][0]["thumbnail"]["url"] %>
+      <% unless area_info["hits"].empty?%>
+        <% image_url = area_info["hits"][0]["largeImageURL"] %>
       <% else %>
-        <% main_url = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=#{area.country.name.tr('àáäâãèéëẽêìíïîĩòóöôõùúüûũñç', 'aaaaaeeeeeiiiiiooooouuuuunc')}&limit=1" %>
+        <% main_url = "https://pixabay.com/api/?key=#{ENV['PIXABAY_KEY']}&q=#{area.country.name.tr('àáäâãèéëẽêìíïîĩòóöôõùúüûũñç', 'aaaaaeeeeeiiiiiooooouuuuunc')}&image_type=photo" %>
         <% user_serialized = URI.open(main_url).read %>
         <% area_info = JSON.parse(user_serialized) %>
-        <% image_url = area_info["pages"][0]["thumbnail"]["url"] %>
+        <% image_url = area_info["hits"][i]["largeImageURL"]%>
       <% end %>
-      <% image_url_resized = image_url.gsub(/[0-9]*\.?[0-9]+px?/, "350px") %>
       <div class = "area-card">
         <%= link_to country_area_path(@country, area) do%>
-          <%= image_tag(image_url_resized, class: "area-image")%>
+          <%= image_tag(image_url, class: "area-image")%>
           <div class = "area-title">
             <%= area.name %>
           </div>
